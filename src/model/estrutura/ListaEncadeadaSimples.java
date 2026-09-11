@@ -1,7 +1,7 @@
 package model.estrutura;
 
-import java.lang.Exception;
-import model.estrutura.NoSimples;
+// import java.lang.Exception;
+// import model.estrutura.NoSimples;
 
 public class ListaEncadeadaSimples<T> {
     private NoSimples<T> inicio = null; // rendundante
