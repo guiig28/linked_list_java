@@ -41,4 +41,59 @@ public class ListaEncadeadaDupla<T> {
         return buffer;
     }
 
+    public int index(T elemento) throws IllegalArgumentException {
+        if (this.inicio == null)
+            throw new IllegalArgumentException("Não existe item na lista.")
+
+        int index = 0;
+
+        if (this.inicio.getValor() == elemento) 
+            return index;
+        
+        NoDuplo<T> buffer = this.inicio;
+
+        do {
+            buffer = buffer.getProximo();
+            index++;
+
+            if (buffer.getValor == elemento) 
+                return index;
+
+        } while (buffer != null);
+
+        throw new IllegalArgumentException("Item não encontrado.")
+    }
+
+    public void insert(int index, T elemento) throws IllegalArgumentException {
+        if (index == 0) {
+            NoDuplo<T> novo = new NoDuplo<>(elemento);
+
+            if (this.inicio == null) {
+                this.inicio = novo; 
+                this.fim = novo;
+            } else {
+                NoDuplo<T> ex_inicio = this.inicio;
+                novo.setProximo(ex_inicio);
+                this.inicio = novo;
+                ex_inicio.setAnterior(novo);
+            }
+        } else {
+            this.insert(this.get(--index), elemento);
+        }
+    } 
+
+    public void insert(NoDuplo<T> item, elemento) throws IllegalArgumentException {
+        NoDuplo<T> novo = new NoDuplo(elemento);
+        NoDuplo<T> proximo = item.getProximo();
+
+        
+        item.setProximo(novo);
+        novo.setAnterior(item);
+        novo.setProximo(proximo);
+        proximo.setAnterior(novo);
+
+        // item <> novo <> proximo
+        
+    }
+
 }
